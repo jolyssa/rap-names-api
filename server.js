@@ -2,6 +2,7 @@ const express = require('express')
 const app = express()
 const PORT = 8000
 
+app.use (cors())
 const rappers = {
     '21 savage': {
     'age': 29,
@@ -38,6 +39,6 @@ app.get('/api/:name', (req,res) => {
     }
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`The server is running on ${PORT}.`)
 })
